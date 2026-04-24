@@ -247,7 +247,7 @@ if ('serviceWorker' in navigator) {
 
     function setGroup(g) { document.getElementById('billGroup').value = g; renderUI(); bootstrap.Modal.getInstance(document.getElementById('modalHistory')).hide(); }
 </script>
-</body
+    <body>
     <div id="splash-screen" style="
         position: fixed;
         top: 0; left: 0;
@@ -278,5 +278,18 @@ if ('serviceWorker' in navigator) {
     </div>
 
     ...
-    >
+// คำสั่งควบคุมหน้าจอ Splash Screen
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+            splash.style.opacity = '0';
+            setTimeout(function() {
+                splash.style.display = 'none';
+            }, 500); 
+        }
+    }, 2000); // แสดงหน้าจอไว้ 2 วินาที
+});
+
+</body>
 </html>
